@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B7q-iX-o4S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Axq-oL-bx0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--To Do List View Controller-->
+        <!--To Achieve-->
         <scene sceneID="S4A-1C-tqh">
             <objects>
                 <tableViewController id="B7q-iX-o4S" customClass="ToDoListViewController" customModule="AchieveIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,10 +31,42 @@
                             <outlet property="delegate" destination="B7q-iX-o4S" id="Rn8-gK-LGP"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="To Achieve" id="91M-mH-OfS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KKx-RK-xMa">
+                            <color key="tintColor" red="0.91853791475296021" green="0.20138740539550781" blue="0.47451597452163696" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="addButtonClicked" destination="B7q-iX-o4S" id="KQi-Rr-x2p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDd-g5-qia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="-15"/>
+            <point key="canvasLocation" x="984.79999999999995" y="-15.742128935532236"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LWN-B8-to0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Axq-oL-bx0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XOd-5M-hdl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.96241128148119537" blue="0.26149072118278294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                            <color key="textColor" red="1" green="0.11748216545006573" blue="0.47558163112769003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="B7q-iX-o4S" kind="relationship" relationship="rootViewController" id="LR3-d0-UOs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2r5-en-KkI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="45.600000000000001" y="-15.742128935532236"/>
         </scene>
     </scenes>
 </document>
