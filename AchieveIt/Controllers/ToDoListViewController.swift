@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import CoreData
+
 
 class ToDoListViewController: UITableViewController {
 
     private var toDoItemsArray: [ToDoItem] = []
+    var parentCategory: Category? {
+        didSet {
+            refreshData()
+        }
+    }
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var titleTextField = UITextField()
     
@@ -64,6 +71,7 @@ class ToDoListViewController: UITableViewController {
             let newItem = ToDoItem(context: self.context)
             newItem.title = self.titleTextField.text
             newItem.checked = false
+            newItem.parentCategory = self.parentCategory
             
             self.toDoItemsArray.append(newItem)
             self.saveToDoItems()
@@ -94,8 +102,12 @@ class ToDoListViewController: UITableViewController {
 
 
     func getData() {
+        
+        let request: NSFetchRequest<ToDoItem> = ToDoItem.fetchRequest()
+        let predicate = NSPredicate(format: "parentCategory.name MATCHES %@", parentCategory!.name!)
+        request.predicate = predicate
         do {
-            toDoItemsArray = try context.fetch(ToDoItem.fetchRequest())
+            toDoItemsArray = try context.fetch(request)
         } catch {
             print("Fetching Failed")
         }
